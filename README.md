@@ -1,8 +1,9 @@
 # Netflix GPT
 - Create React App
 - Configured Tailwind
+- Set Up Routing
 
-#Features
+# Features
 - Login and signup page
     - Sign up form
     - Redirect to browse page
