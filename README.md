@@ -2,6 +2,13 @@
 - Create React App
 - Configured Tailwind
 - Set Up Routing
+- Form Validation
+- Login Form
+- Sign Up form
+- useRef
+- Firebase Setup For Authentication
+- Deploy on firebase (https://netflixgpt-edbac.web.app/)
+- Create SignUp USer account
 
 ## Features
 - Login and signup page
