@@ -7,6 +7,7 @@
 - Login and signup page
     - Sign up form
     - Redirect to browse page
+    - Signup Form
 - Browse (Only comes after Authentication)
     - Header
     - Main Movie
