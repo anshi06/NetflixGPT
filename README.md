@@ -9,6 +9,8 @@
 - Firebase Setup For Authentication
 - Deploy on firebase (https://netflixgpt-edbac.web.app/)
 - Create SignUp USer account
+- Use Firebase API for signIn and signUp.
+- Store User Data in Redux store and navigate to the browse page.
 
 ## Features
 - Login and signup page
