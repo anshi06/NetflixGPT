@@ -8,13 +8,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { checkValidateData, checkValidateName } from "../utils/validate";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/userSlice";
+import { BACK_IMG, USER_LOGO } from "../utils/constants";
 
 const Login = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
@@ -49,22 +48,22 @@ const Login = () => {
           console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
+            photoURL: USER_LOGO,
           })
             .then(() => {
               const { uid, email, displayName } = auth.currentUser;
-              dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-              navigate("/browse");
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName })
+              );
               // Profile updated!
             })
             .catch((error) => {
               // An error occurred
-              setErrorMessage(error.message)
+              setErrorMessage(error.message);
             });
-          
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorMessage);
         });
@@ -79,10 +78,9 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorMessage);
         });
@@ -97,11 +95,7 @@ const Login = () => {
   return (
     <div className="">
       <Header />
-      <img
-        className="w-full absolute"
-        alt="background-img"
-        src="https://cdn-images-1.medium.com/v2/resize:fit:1024/1*5lyavS59mazOFnb55Z6znQ.png"
-      />
+      <img className="w-full absolute" alt="background-img" src={BACK_IMG} />
       <form
         className="p-12 bg-slate-800 w-3/12 absolute mx-auto top-28 right-0 left-0 flex flex-col text-white rounded bg-opacity-90"
         onSubmit={(e) => e.preventDefault()}

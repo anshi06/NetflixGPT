@@ -11,6 +11,12 @@
 - Create SignUp USer account
 - Use Firebase API for signIn and signUp.
 - Store User Data in Redux store and navigate to the browse page.
+- Implement Signout.
+- Update Profile after signup (with name and photo)
+- Bug-fix: User is logged in redirect him to browse page if it is going in login page. 
+- Bug-fix: User is not logged in and try to access browse page, redirect him to login page
+- Unsubsrcribe auth state. onAuthStateChanged Callback.
+- Added constants in constants file.
 
 ## Features
 - Login and signup page
