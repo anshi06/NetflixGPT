@@ -17,6 +17,8 @@
 - Bug-fix: User is not logged in and try to access browse page, redirect him to login page
 - Unsubsrcribe auth state. onAuthStateChanged Callback.
 - Added constants in constants file.
+- Register from TMDB API and create an app and get access token.
+- Called TMDB NowPlaying movies api on browse page.
 
 ## Features
 - Login and signup page
