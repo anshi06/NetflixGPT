@@ -19,6 +19,13 @@
 - Added constants in constants file.
 - Register from TMDB API and create an app and get access token.
 - Called TMDB NowPlaying movies api on browse page.
+- Custom Hook for NowPlaying Movies
+- Create movieSlice
+- Update store movie data.
+- Main Container design
+- Fetch data for trailer video
+- Update store with trailer video data.
+- Embedded the youtube video. Make it autoplay and mute
 
 ## Features
 - Login and signup page
