@@ -16,8 +16,16 @@ export const API_OPTIONS = {
   },
 };
 
-export const NOWPLAYING_MOVIE_API_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1';
+export const NOWPLAYING_MOVIE_API_URL = 'https://api.themoviedb.org/3/movie/now_playing?language=en-IN&page=1';
+
+export const POPULAR_MOVIES_API_URL = "https://api.themoviedb.org/3/movie/popular?language=en-IN&page=1";
+
+export const TOP_RATED_MOVIES_API_URL = "https://api.themoviedb.org/3/movie/top_rated??language=en-IN&page=1";
+
+export const UPCOMING_MOVIES_API_URL = "https://api.themoviedb.org/3/movie/upcoming??language=en-IN&page=1";
 
 export const MOVIE_VIDEO_URL = "https://api.themoviedb.org/3/movie/";
 
-export const YOUTUBE_VIDEO_URL = "https://www.youtube.com/embed/"
+export const YOUTUBE_VIDEO_URL = "https://www.youtube.com/embed/";
+
+export const MOVIE_POSTER_URL = "https://image.tmdb.org/t/p/w500";

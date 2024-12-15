@@ -7,7 +7,7 @@ const MainContainer = () => {
 
   if(!movies) return null;
 
-  const mainMovie = movies[Math.floor(Math.random() * 15)];
+  const mainMovie = movies[9];
 
   if(!mainMovie) return null;
   

@@ -26,6 +26,10 @@
 - Fetch data for trailer video
 - Update store with trailer video data.
 - Embedded the youtube video. Make it autoplay and mute
+- Build Secodary Component.
+- Build movie list
+- Build movie card.
+- Added image cdn url.
 
 ## Features
 - Login and signup page
