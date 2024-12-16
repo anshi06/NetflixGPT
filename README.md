@@ -30,6 +30,8 @@
 - Build movie list
 - Build movie card.
 - Added image cdn url.
+- Building GPT search page.
+- Make app multiple laguage support
 
 ## Features
 - Login and signup page
