@@ -31,7 +31,10 @@
 - Build movie card.
 - Added image cdn url.
 - Building GPT search page.
-- Make app multiple laguage support
+- Make app multiple laguage support (For Gpt Search and browse movie section)
+- Add openAI key to access openAI API
+- Error Handling (Todo)
+- If Poster is not there add some fallback poster (To Do)
 
 ## Features
 - Login and signup page

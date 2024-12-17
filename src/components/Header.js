@@ -67,7 +67,7 @@ const Header = () => {
         <div className="flex m-2 items-center">
           {showGptSearch && <select className="p-2 bg-black bg-opacity-70 rounded-lg text-white" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
-              <option className="text-white bg-black" value={lang.identifier}>{lang.name}</option>
+              <option className="text-white bg-black" value={lang.identifier} key={lang.identifier}>{lang.name}</option>
             ))}
           </select>}
           <button
