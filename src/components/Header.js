@@ -10,7 +10,6 @@ import { toggleGptSearchView } from "../store/gptSlice";
 import {
   NETFLIX_LOGO,
   SUPPORTED_LANGUAGES,
-  USER_LOGO,
 } from "../utils/constants";
 import { changeLanguage } from "../store/appConfig";
 
@@ -61,10 +60,10 @@ const Header = () => {
   }
 
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between">
-      <img className="w-36 m-2" alt="logo" src={NETFLIX_LOGO} />
+    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row md:justify-between ">
+      <img className="w-36 m-2 mx-auto md:mx-0" alt="logo" src={NETFLIX_LOGO} />
       {user && (
-        <div className="flex m-2 items-center">
+        <div className="flex m-2 items-center justify-between">
           {showGptSearch && <select className="p-2 bg-black bg-opacity-70 rounded-lg text-white" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option className="text-white bg-black" value={lang.identifier} key={lang.identifier}>{lang.name}</option>
@@ -76,7 +75,6 @@ const Header = () => {
           >
            {showGptSearch ? "Home" : "GPT Search"}
           </button>
-          <img className="w-10 h-10" alt="User Icon" src={USER_LOGO} />
           <button
             className="font-bold m-2 p-2 text-white bg-black bg-opacity-70 rounded"
             onClick={handleSignOut}

@@ -9,7 +9,7 @@ const useUpcomingMovies = () => {
   const upcomingMovies = useSelector((store) => store.movies?.upcomingMovies);
 
   useEffect(() => {
-    if(!upcomingMovies){
+    if(!upcomingMovies.length){
       getUpcomingMovies();
     }
   }, []);

@@ -9,7 +9,7 @@ const useTopRatedMovies = () => {
   const topRatedMovies = useSelector((store) => store.movies?.topRatedMovies);
 
   useEffect(() => {
-    if (!topRatedMovies) {
+    if (!topRatedMovies.length) {
       getTopRatedMovies();
     }
   }, []);

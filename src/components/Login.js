@@ -95,9 +95,9 @@ const Login = () => {
   return (
     <div className="">
       <Header />
-      <img className="w-full absolute" alt="background-img" src={BACK_IMG} />
+      <img className="h-screen object-cover w-full absolute" alt="background-img" src={BACK_IMG} />
       <form
-        className="p-12 bg-slate-800 w-3/12 absolute mx-auto top-28 right-0 left-0 flex flex-col text-white rounded bg-opacity-90"
+        className="p-12 bg-slate-800 w-full md:w-3/12 absolute mx-auto top-28 md:top-12 right-0 left-0 flex flex-col text-white rounded bg-opacity-90"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="font-bold text-3xl py-4">
