@@ -35,6 +35,7 @@
 - Add openAI key to access openAI API
 - Error Handling (Todo)
 - If Poster is not there add some fallback poster (To Do)
+- Memoization (If data is already in the store, don't fetch it again)
 
 ## Features
 - Login and signup page

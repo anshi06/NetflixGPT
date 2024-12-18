@@ -6,9 +6,12 @@ import { addUpcomingMovies } from "../store/moviesSlice";
 const useUpcomingMovies = () => {
   const dispatch = useDispatch();
   const languageKey = useSelector((store) => store.config?.lang);
+  const upcomingMovies = useSelector((store) => store.movies?.upcomingMovies);
 
   useEffect(() => {
-    getUpcomingMovies();
+    if(!upcomingMovies){
+      getUpcomingMovies();
+    }
   }, []);
 
   const getUpcomingMovies = async () => {

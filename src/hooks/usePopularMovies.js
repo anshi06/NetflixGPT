@@ -6,13 +6,21 @@ import { addPopularMovies } from "../store/moviesSlice";
 const usePopularMovies = () => {
   const dispatch = useDispatch();
   const languageKey = useSelector((store) => store.config?.lang);
-  
+  const popularMovies = useSelector(
+    (store) => store.movies?.popularMovies
+  );
+
   useEffect(() => {
-    getPopularMovies();
+    if (!popularMovies) {
+      getPopularMovies();
+    }
   }, []);
 
   const getPopularMovies = async () => {
-    const res = await fetch(POPULAR_MOVIES_API_URL + `${languageKey == "en" ? "en-US" : languageKey}`, API_OPTIONS);
+    const res = await fetch(
+      POPULAR_MOVIES_API_URL + `${languageKey == "en" ? "en-US" : languageKey}`,
+      API_OPTIONS
+    );
     const data = await res.json();
     dispatch(addPopularMovies(data.results));
   };
