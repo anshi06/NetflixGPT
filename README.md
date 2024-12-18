@@ -36,6 +36,7 @@
 - Error Handling (Todo)
 - If Poster is not there add some fallback poster (To Do)
 - Memoization (If data is already in the store, don't fetch it again)
+- Responsive designs for mobile and desktop
 
 ## Features
 - Login and signup page
