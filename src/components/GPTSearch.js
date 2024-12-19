@@ -1,4 +1,5 @@
 import GptMoviesSuggestions from "./GptMoviesSuggestions";
+import Footer from "./Footer";
 import GptSearchBar from "./GptSearchBar";
 import { BACK_IMG } from "../utils/constants";
 
@@ -9,6 +10,7 @@ const GPTSearch = () => {
       <div className="">
         <GptSearchBar />
         <GptMoviesSuggestions />
+        <Footer/>
       </div>
     </div>
   );
