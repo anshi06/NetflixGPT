@@ -4,11 +4,13 @@ import { useRef } from "react";
 import openai from "../utils/openAI";
 import { API_OPTIONS, MOVIE_SEARCH_API } from "../utils/constants";
 import { addGptMovieResult } from "../store/gptSlice";
+import { useNavigate } from "react-router-dom";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
   const languageKey = useSelector((store) => store.config?.lang);
   const searchText = useRef(null);
+  const navigate = useNavigate();
 
   const searchMoviesTmdb = async (movieName) => {
     const data = await fetch(MOVIE_SEARCH_API + movieName, API_OPTIONS);
@@ -18,28 +20,36 @@ const GptSearchBar = () => {
 
   const handleGptSearch = async () => {
     //Make an api call to openAI and get movie results.
-    const gptQuery =
-      "Act as a Movie recommendation system and suggest some movies for the query" +
-      searchText.current.value +
-      ". only give me names of 5 movies, comma seperated like the example result given ahead. Exaple Result: Gaddar, Sholey, Don, Heorine, 3 Idiots and Please understand laguage code" +
-      languageKey +
-      "and give results in english";
-    const gptResults = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [{ role: "user", content: gptQuery }],
-    });
+    try {
+      const gptQuery =
+        "Act as a Movie recommendation system and suggest some movies for the query" +
+        searchText.current.value +
+        ". only give me names of 5 movies, comma seperated like the example result given ahead. Exaple Result: Gaddar, Sholey, Don, Heorine, 3 Idiots and Please understand laguage code" +
+        languageKey +
+        "and give results in english";
+      const gptResults = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [{ role: "user", content: gptQuery }],
+      });
 
-    if (!gptResults.choices[0]) {
-      //Error Handling
+      if (!gptResults.choices[0]) {
+        //Error Handling
+        navigate("/error")
+      }
+
+      const gptMovies = gptResults.choices[0]?.message.content.split(",");
+
+      const promiseArr = gptMovies.map((movie) => searchMoviesTmdb(movie));
+
+      const tmdbResults = await Promise.all(promiseArr);
+
+      dispatch(
+        addGptMovieResult({ movieNames: gptMovies, movies: tmdbResults })
+      );
+    } catch (err) {
+      navigate("/error");
+      // throw new Error("Search can't be completed at the moment. Please try again later.");
     }
-
-    const gptMovies = gptResults.choices[0]?.message.content.split(",");
-
-    const promiseArr = gptMovies.map((movie) => searchMoviesTmdb(movie));
-
-    const tmdbResults = await Promise.all(promiseArr);
-
-    dispatch(addGptMovieResult({ movieNames: gptMovies, movies: tmdbResults }));
   };
 
   return (
